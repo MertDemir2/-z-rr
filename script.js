@@ -31,11 +31,11 @@ function yazdir(text, element, speed, callback) {
 
 window.onload = () => {
     // Sırasıyla yazdırma işlemi: Sol -> Orta -> Sağ
-    yazdir(ilkYazi, boxLeft, 4, () => {
+    yazdir(ilkYazi, boxLeft, 40, () => {
         setTimeout(() => {
-            yazdir(ikinciYazi, boxCenter, 4, () => {
+            yazdir(ikinciYazi, boxCenter, 40, () => {
                 setTimeout(() => {
-                    yazdir(ucuncuYazi, boxRight, 4, () => {
+                    yazdir(ucuncuYazi, boxRight, 40, () => {
                         nextBtn.classList.add('visible');
                     });
                 }, 500); // Paragraflar arası yarım saniye bekleme
