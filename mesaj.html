@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bana Yazzzz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IE:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="mesaj.css">
+</head>
+<body>
+    <div class="main-layout">
+        
+        <div class="top-photos">
+            <div class="polaroid p3"><img src="resim3.jpg" alt="6"></div>
+            <div class="polaroid p4"><img src="resim4.jpg" alt="6"></div>
+            <div class="polaroid p5"><img src="resim5.jpg" alt="6"></div>
+        </div>
+
+        <div class="side-photos">
+            <div class="polaroid p1"><img src="resim1.jpg" alt="6"></div>
+            <div class="polaroid p2"><img src="resim2.jpg" alt="6"></div>
+        </div>
+
+        <div class="spotify-area">
+            <div class="spotify-info">
+                <div class="spotify-card-mini">
+                    <img src="resim6.jpg" alt="3" class="spotify-thumb">
+                    <div class="spotify-meta">
+                        <h3>Affet</h3>
+                        <p>Müslüm Gürses</p>
+                    </div>
+                </div>
+                <div class="spotify-progress-area">
+                    <div class="spotify-progress-bar">
+                        <div class="spotify-progress-active" style="width: 43%;"></div>
+                    </div>
+                    <div class="spotify-times">
+                        <span>01:57</span>
+                        <span>04:39</span>
+                    </div>
+                </div>
+                <div class="spotify-controls">
+                    <i class="fas fa-random"></i>
+                    <i class="fas fa-step-backward"></i>
+                    <i class="fas fa-play-circle play-center"></i>
+                    <i class="fas fa-step-forward"></i>
+                    <i class="fas fa-undo"></i>
+                </div>
+            </div>
+
+            <div class="lyrics-panel">
+                <div class="lyrics-list">
+                    <p class="lyric-line active">Sevgilim, bağışla</p>
+                    <p class="lyric-line">Biraz zor olsa da</p>
+                    <p class="lyric-line">Affet ben akşamüstü</p>
+                    <p class="lyric-line">Gölgen uzarken</p>
+                    <p class="lyric-line">Sabaha kalmadan affet</p>
+                    <p class="lyric-line">Tam "Ayrıldık" derken</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-area">
+            <div class="msg-card">
+                <h2>Bana Bir Şeyler Yaz Hayatımm...</h2>
+                <textarea id="userInput" placeholder="Muuuuuuuuuuuuuaaaaaaaaaaaaaaaah"></textarea>
+                <button onclick="sendToTelegram()" id="sendBtn">Mesajı Gönder</button>
+                <p id="statusMsg"></p>
+            </div>
+        </div>
+
+    </div>
+    <script src="mesaj.js"></script>
+</body>
+</html>

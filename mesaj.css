@@ -1,0 +1,208 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #4b0082, #2c3e50, #1a1a1a);
+    background-size: 200% 200%;
+    animation: glowMove 10s ease infinite;
+    font-family: "Playwrite IE", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+@keyframes glowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.main-layout {
+    width: 98%;
+    max-width: 1500px;
+    height: 95vh;
+    display: grid;
+    grid-template-areas: 
+        "side top mesaj"
+        "side spotify mesaj";
+    grid-template-rows: 1.5fr 1fr; 
+    grid-template-columns: 0.8fr 1.5fr 1.2fr; /* Sol (side) dar, orta (spotify/top) geniş, sağ (mesaj) sabit */
+    gap: 20px;
+    padding: 15px;
+}
+
+/* POLAROID GENEL STİL */
+.polaroid {
+    background: white;
+    padding: 10px 10px 35px 10px;
+    width: 240px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border-radius: 2px;
+}
+
+.polaroid img { width: 100%; height: 200px; object-fit: cover; }
+
+/* SOL KÖŞE (Okla İşaretlediğin Yer Düzenlendi) */
+.side-photos {
+    grid-area: side;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Resimleri yukarıdan başlat */
+    align-items: center;
+    position: relative;
+    padding-top: 20px;
+}
+
+.p1 { 
+    transform: rotate(-12deg); 
+    position: absolute; 
+    top: 45%; /* Alttaki resmi biraz aşağıda tuttuk */
+    left: 5%; 
+    z-index: 1; 
+}
+
+.p2 { 
+    transform: rotate(6deg); 
+    position: absolute; 
+    top: 5%; /* OKLA İŞARETLEDİĞİN RESMİ EN YUKARI ÇEKTİK */
+    left: 15%; 
+    z-index: 2; 
+}
+
+/* ÜST ORTA (3, 4, 5. Resimler) */
+.top-photos {
+    grid-area: top;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    padding-bottom: 20px;
+}
+
+.p3 { transform: rotate(-3deg); }
+.p4 { transform: rotate(7deg); margin-bottom: 20px; }
+.p5 { transform: rotate(-5deg); }
+
+/* --- SPOTIFY ALANI SADECE --- */
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap');
+
+.spotify-area {
+    grid-area: spotify;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 25px;
+    display: flex;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    font-family: 'Arimo', sans-serif; /* Sadece Spotify alanında Arimo fontu */
+}
+
+/* Sol Panel (Resim ve Kontroller) */
+.spotify-info {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.spotify-card-mini {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* 3 Numaralı yer için resim6.jpg kullanımı */
+.spotify-thumb { 
+    width: 90px; 
+    height: 90px; 
+    border-radius: 10px; 
+    object-fit: cover;
+    content: url('resim6.jpg'); /* Klasördeki resim6.jpg buraya gelir */
+}
+
+.spotify-meta h3 { font-size: 1.2rem; font-weight: 700; color: #fff; }
+.spotify-meta p { color: #1DB954; font-size: 0.9rem; font-weight: 400; }
+
+/* 2 Numaralı yer (Dakika Düzeltmesi) */
+.spotify-progress-area { width: 100%; margin: 15px 0; }
+.spotify-progress-bar { width: 100%; height: 5px; background: #333; border-radius: 5px; position: relative; }
+.spotify-progress-active { height: 100%; background: #1DB954; width: 43%; border-radius: 5px; }
+
+.spotify-times { 
+    display: flex; 
+    justify-content: space-between; /* 01:57 sol, 04:39 sağa yaslanır */
+    font-size: 0.85rem; 
+    color: #b3b3b3; 
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.spotify-controls { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    font-size: 1.3rem; 
+    color: #b3b3b3; 
+    align-items: center; 
+}
+.play-center { font-size: 2.8rem; color: white; cursor: pointer; }
+
+/* Lyrics Paneli (Arimo fontu ile) */
+.lyrics-panel { 
+    flex: 1.4; 
+    padding: 25px; 
+    display: flex; 
+    align-items: center; 
+}
+
+.lyric-line { 
+    font-family: 'Arimo', sans-serif;
+    font-size: 1.3rem; 
+    padding: 6px 0; 
+    color: rgba(255,255,255,0.15); 
+    font-weight: 700; /* Daha kalın ve net duruş */
+    line-height: 1.4;
+}
+
+.lyric-line.active { 
+    color: #fff; 
+    text-shadow: 0 0 20px rgba(255,255,255,0.6); 
+}
+
+/* MESAJ ALANI */
+.message-area { grid-area: mesaj; }
+.msg-card {
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid rgba(142,68,173,0.3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    flex: 1;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 15px;
+    font-size: 1rem;
+    resize: none;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+button {
+    padding: 15px;
+    background: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
